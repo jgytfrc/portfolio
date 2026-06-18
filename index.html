@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animal Trace · 作品集</title>
+<style>
+:root{--bg:#0a0a0a;--surface:#0f0f0f;--text:#c8c3bb;--accent:#c8956c;--green:#7a9a6e;--border:#1a1a1a;--muted:#5a5550}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Serif SC','Source Han Serif SC',serif;background:var(--bg);color:var(--text);display:flex;min-height:100vh;-webkit-font-smoothing:antialiased}
+
+/* Sidebar */
+.sidebar{width:340px;background:var(--surface);border-right:1px solid var(--border);padding:40px 32px;position:fixed;top:0;left:0;bottom:0;overflow-y:auto;z-index:10;display:flex;flex-direction:column}
+.sidebar h1{font-size:22px;font-weight:400;letter-spacing:.06em;margin-bottom:4px}
+.sidebar .subtitle{font-size:12px;opacity:.4;letter-spacing:.15em;font-family:'Inter','PingFang SC',sans-serif;margin-bottom:40px}
+.sidebar-nav{display:flex;flex-direction:column;gap:4px;flex:1}
+.sidebar-nav a{color:var(--text);text-decoration:none;font-size:13px;padding:8px 12px;border-radius:4px;transition:all .2s;opacity:.45;font-family:'Inter','PingFang SC',sans-serif;letter-spacing:.02em}
+.sidebar-nav a:hover,.sidebar-nav a.active{opacity:1;background:rgba(200,150,100,.08);color:var(--accent)}
+.sidebar-footer{font-size:10px;opacity:.2;margin-top:20px;font-family:'Inter',sans-serif;letter-spacing:.05em}
+
+/* Main */
+.main{margin-left:340px;flex:1;padding:60px 80px;max-width:900px}
+.section{margin-bottom:80px}
+.section:last-child{margin-bottom:0}
+.section-num{font-size:10px;letter-spacing:.2em;opacity:.3;font-family:'Inter',sans-serif;margin-bottom:12px}
+.section h2{font-size:28px;font-weight:400;letter-spacing:.04em;margin-bottom:8px}
+.section .subhead{font-size:13px;opacity:.4;margin-bottom:32px;line-height:1.8}
+.section p{font-size:14px;line-height:2;opacity:.65;margin-bottom:16px}
+.section p strong{color:var(--accent);font-weight:400}
+.section blockquote{border-left:2px solid var(--accent);padding:8px 20px;margin:24px 0;opacity:.5;font-size:13px;line-height:1.9;font-style:italic}
+
+/* Stat cards */
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin:24px 0}
+.stat-card{background:var(--surface);border:1px solid var(--border);padding:24px}
+.stat-card .num{font-size:36px;font-weight:300;color:var(--accent);margin-bottom:4px;letter-spacing:-.02em}
+.stat-card .label{font-size:11px;opacity:.4;font-family:'Inter',sans-serif}
+
+/* Table */
+.data-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:13px}
+.data-table th{text-align:left;padding:12px 16px;border-bottom:1px solid var(--border);font-weight:400;opacity:.4;font-size:10px;letter-spacing:.1em;font-family:'Inter',sans-serif;text-transform:uppercase}
+.data-table td{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.03);line-height:1.6;opacity:.6}
+.data-table tr:hover td{opacity:.8;background:rgba(200,150,100,.03)}
+
+/* Relation cards */
+.relation-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin:24px 0}
+.relation-card{background:var(--surface);border:1px solid var(--border);overflow:hidden}
+.relation-card .rc-img{width:100%;aspect-ratio:4/3;background:#111;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.relation-card .rc-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.relation-card:hover .rc-img img{transform:scale(1.04)}
+.relation-card .rc-img .rc-placeholder{font-size:60px;opacity:.12;position:absolute}
+.relation-card .rc-body{padding:24px}
+.relation-card .rc-body h4{font-size:16px;font-weight:400;color:var(--accent);margin-bottom:14px;letter-spacing:.04em}
+.relation-card .rc-body ul{list-style:none;padding:0}
+.relation-card .rc-body li{font-size:13px;line-height:1.9;opacity:.55;padding:3px 0;padding-left:16px;position:relative}
+.relation-card .rc-body li::before{content:'';position:absolute;left:0;top:11px;width:3px;height:3px;border-radius:50%;background:var(--accent);opacity:.4}
+.relation-card .rc-body li strong{color:var(--text);opacity:.8;font-weight:400}
+.relation-card.full{grid-column:1/-1}
+@media(max-width:768px){.relation-grid{grid-template-columns:1fr}}
+.bullet-list{list-style:none;padding:0;margin:16px 0}
+.bullet-list li{padding:6px 0;padding-left:20px;position:relative;font-size:14px;line-height:1.8;opacity:.6}
+.bullet-list li::before{content:'';position:absolute;left:0;top:14px;width:4px;height:4px;border-radius:50%;background:var(--accent);opacity:.5}
+
+@media(max-width:768px){body{flex-direction:column}.sidebar{position:relative;width:100%;padding:24px 20px}.sidebar-nav{flex-direction:row;flex-wrap:wrap;gap:8px}.main{margin-left:0;padding:40px 20px}}
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <h1>Animal Trace</h1>
+  <div class="subtitle">动物制品启示录</div>
+  <nav class="sidebar-nav">
+    <a href="#overview" class="active">课题概要</a>
+    <a href="#background">研究背景</a>
+    <a href="#themes">表达理念</a>
+    <a href="#relations">人与动物的关系</a>
+    <a href="#status">动物制品现状</a>
+    <a href="#sources">出处汇总</a>
+  </nav>
+  <div class="sidebar-footer">情報デザイン · 大学院進学作品集</div>
+</aside>
+
+<main class="main">
+
+<!-- 1. 课题概要 -->
+<section class="section" id="overview">
+  <div class="section-num">01 / OVERVIEW</div>
+  <h2>课题概要</h2>
+  <div class="subhead">Animal Trace — 以动物制品为镜，审视人与动物的千年关系</div>
+  <p>本课题以<strong>动物制品</strong>为引导线索，通过数字媒体艺术的手段，追溯人类使用动物制品的历史谱系——从旧石器时代以兽皮御寒、以兽骨制作工具的<strong>生存驱动</strong>，到商周时期象牙雕刻和龟甲占卜的<strong>礼仪化</strong>，再到丝绸之路上的象牙、犀角贸易，直至当代每年高达200亿美元的<strong>非法野生动物贸易</strong>。</p>
+  <p>作品集包含<strong>数据可视化装置、交互投影、生成艺术、AR体验、声音可视化</strong>等多种数字媒体形式，覆盖16种受威胁的动物物种。核心目标是让观众<strong>从旁观者变为思考者</strong>——不是被动接受道德说教，而是在沉浸式的视觉体验中主动反思人与动物的伦理关系。</p>
+  <blockquote>「十万年前，人类用兽皮御寒——那是生存。今天，象牙被雕刻成奢侈品——这是掠夺。」</blockquote>
+</section>
+
+<!-- 2. 研究背景 -->
+<section class="section" id="background">
+  <div class="section-num">02 / BACKGROUND</div>
+  <h2>研究背景</h2>
+  <div class="subhead">全球野生动物贸易的规模与影响</div>
+  <p>野生动物及其制品的非法贸易是全球<strong>第四大非法贸易</strong>，仅次于毒品、人口贩卖和假冒商品，年交易额估值高达<strong>200亿美元</strong>。1973年《濒危野生动植物种国际贸易公约》（CITES）签署，1989年象牙国际贸易禁令生效，然而盗猎和走私从未真正停止。</p>
+
+  <div class="stat-grid">
+    <div class="stat-card"><div class="num">41.5万</div><div class="label">非洲象现存数量（1979年为130万）</div></div>
+    <div class="stat-card"><div class="num">2</div><div class="label">北方白犀牛幸存个体（功能性灭绝）</div></div>
+    <div class="stat-card"><div class="num">~3900</div><div class="label">全球野生虎存栏量</div></div>
+    <div class="stat-card"><div class="num">100万+</div><div class="label">十年间被盗猎的穿山甲数量</div></div>
+  </div>
+
+  <p>作为数字媒体艺术专业的学生和未来的情報デザイン研究者，我试图用<strong>视觉语言</strong>而非文字报告来呈现这些数据——因为数字是抽象的，而<strong>图像和交互体验可以让抽象的数字产生情感重量</strong>。</p>
+</section>
+
+<!-- 3. 表达理念 -->
+<section class="section" id="themes">
+  <div class="section-num">03 / THEMES</div>
+  <h2>表达理念</h2>
+  <div class="subhead">作品集试图传达的核心思想</div>
+  <ul class="bullet-list">
+    <li><strong>从生存到掠夺</strong>：追溯动物制品从"生存必需"到"奢侈消费"的历史转变，揭示人类欲望如何将一个原本基于生存需求的行为扭曲为一场全球性的生态危机</li>
+    <li><strong>对话而非说教</strong>：拒绝道德绑架式的表达，以沉浸体验和认知冲突取代单向的道德谴责——让观众在感受中自己得出结论</li>
+    <li><strong>数据的情感化</strong>：将CITES、IUCN等数据库中的冷数字转化为可感知的视觉叙事——每一个数字背后都是一个正在消失的物种</li>
+    <li><strong>媒介即信息</strong>：运用交互装置、生成艺术、3D可视化等数字媒体手段，让"媒介的形式"本身成为叙事的一部分</li>
+    <li><strong>跨文化视角</strong>：融合中国考古发现与全球保护数据，呈现一个既具本土深度又有全球视野的叙事</li>
+    <li><strong>没有标准答案</strong>：不给出"正确做法"的结论，而是呈现问题的复杂性——因为真正的思考始于认识到没有简单的答案</li>
+  </ul>
+</section>
+
+<!-- 4. 人与动物的关系 -->
+<section class="section" id="relations">
+  <div class="section-num">04 / RELATIONS</div>
+  <h2>人与动物的关系</h2>
+  <div class="subhead">从生存依赖到伦理觉醒的二十四种关系形态<br>画像出典：Smithsonian（甲骨文）· 各博物馆Open Access · 自行摄影</div>
+
+  <div class="relation-grid">
+
+    <!-- 1. 生存依赖与早期关系 -->
+    <div class="relation-card">
+      <div class="rc-img">
+        <span class="rc-placeholder">🦴</span>
+        <img src="assets/relations/survival.jpg" alt="旧石器骨器·生存依赖" loading="lazy" onerror="this.style.display='none'">
+      </div>
+      <div class="rc-body">
+        <h4>生存依赖与早期关系</h4>
+        <ul>
+          <li><strong>生存依赖</strong> — 人类依赖野生动物获取肉食、皮毛、骨骼工具</li>
+          <li><strong>狩猎伙伴</strong> — 狼（狗的前身）与人类形成合作关系</li>
+          <li><strong>共栖关系</strong> — 动物主动靠近人类聚落，形成非驯化的共生</li>
+          <li><strong>精神纽带</strong> — 穿孔兽牙项链、刻划骨片，动物成为原始信仰载体</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 2. 驯化与管理 -->
+    <div class="relation-card">
+      <div class="rc-img">
+        <span class="rc-placeholder">🐂</span>
+        <img src="assets/relations/domestication.jpg" alt="牛耕·驯化" loading="lazy" onerror="this.style.display='none'">
+      </div>
+      <div class="rc-body">
+        <h4>驯化与管理</h4>
+        <ul>
+          <li><strong>驯化关系</strong> — 人类开始主动驯养动物，从"狩猎者"转变为"管理者"</li>
+          <li><strong>劳力利用</strong> — 牛被用于耕地，动物从食物来源扩展为劳动力</li>
+          <li><strong>"次级产品"开发</strong> — 不杀死动物也能获取资源（奶、毛、蛋）</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3. 仪式与权力 -->
+    <div class="relation-card">
+      <div class="rc-img">
+        <span class="rc-placeholder">🐢</span>
+        <img src="assets/relations/oracle-bone.jpg" alt="甲骨文·商周祭祀" loading="lazy" onerror="this.style.display='none'">
+      </div>
+      <div class="rc-body">
+        <h4>仪式与权力</h4>
+        <ul>
+          <li><strong>仪式关系</strong> — 动物成为祭祀和殉葬的对象</li>
+          <li><strong>权力象征</strong> — 动物成为王权、神权的物质载体</li>
+          <li><strong>文字载体</strong> — 动物骨骼成为记录文明的载体（甲骨文）</li>
+          <li><strong>社会等级</strong> — 不同阶层对动物资源的获取权不同</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 4. 贸易与商品化 -->
+    <div class="relation-card">
+      <div class="rc-img">
+        <span class="rc-placeholder">🛤️</span>
+        <img src="assets/relations/trade.jpg" alt="丝绸之路·象牙犀角贸易" loading="lazy" onerror="this.style.display='none'">
+      </div>
+      <div class="rc-body">
+        <h4>贸易与商品化</h4>
+        <ul>
+          <li><strong>商品化</strong> — 动物制品成为全球贸易的核心商品</li>
+          <li><strong>奢侈品贸易</strong> — 象牙、犀角、虎皮、麝香等珍稀材料跨区域流通</li>
+          <li><strong>符号化消费</strong> — 动物制品成为身份象征与黑市目标</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 5. 工业化、科学与军事 -->
+    <div class="relation-card">
+      <div class="rc-img">
+        <span class="rc-placeholder">🏭</span>
+        <img src="assets/relations/industrial.jpg" alt="工业化·皮革工厂" loading="lazy" onerror="this.style.display='none'">
+      </div>
+      <div class="rc-body">
+        <h4>工业化、科学与军事</h4>
+        <ul>
+          <li><strong>工业化利用</strong> — 动物成为标准化工业原料</li>
+          <li><strong>科学实验对象</strong> — 动物为人类医学进步牺牲</li>
+          <li><strong>军事依赖</strong> — 动物深度卷入人类战争</li>
+          <li><strong>实用与审美统一</strong> — 动物材料兼具功能性与美学价值</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 6. 伴侣、伦理与关系分层 -->
+    <div class="relation-card">
+      <div class="rc-img">
+        <span class="rc-placeholder">🐕</span>
+        <img src="assets/relations/companion.jpg" alt="动物伴侣·伦理觉醒" loading="lazy" onerror="this.style.display='none'">
+      </div>
+      <div class="rc-body">
+        <h4>伴侣、伦理与关系分层</h4>
+        <ul>
+          <li><strong>动物伴侣</strong> — 部分动物从"资源"转变为"家人"</li>
+          <li><strong>伦理觉醒</strong> — 人类开始反思对动物的权利与责任</li>
+          <li><strong>关系分层</strong> — 不同动物在人类社会中地位分化</li>
+          <li><strong>民族身份载体</strong> — 动物制品成为民族文化的物质载体</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 5. 动物制品现状 -->
+<section class="section" id="status">
+  <div class="section-num">04 / STATUS</div>
+  <h2>动物制品现状</h2>
+  <div class="subhead">16种受威胁物种与动物制品贸易</div>
+
+  <table class="data-table">
+    <thead><tr><th>动物</th><th>制品</th><th>IUCN</th><th>CITES</th><th>现状</th></tr></thead>
+    <tbody>
+      <tr><td>非洲象</td><td>象牙</td><td>濒危(EN)</td><td>附录I</td><td>从130万头锐减至41.5万头，每15分钟一头被猎杀</td></tr>
+      <tr><td>白犀牛</td><td>犀角</td><td>近危(NT)</td><td>附录I/II</td><td>北白犀仅存2头雌性，功能性灭绝</td></tr>
+      <tr><td>孟加拉虎</td><td>虎皮·虎骨</td><td>濒危(EN)</td><td>附录I</td><td>全球野生仅约3900只</td></tr>
+      <tr><td>玳瑁海龟</td><td>龟甲</td><td>极危(CR)</td><td>附录I</td><td>三代内种群下降80%以上</td></tr>
+      <tr><td>梅花鹿</td><td>鹿角·兽皮</td><td>无危(LC)</td><td>—</td><td>养殖为主，野生种群在中国受一级保护</td></tr>
+      <tr><td>金刚鹦鹉</td><td>羽毛</td><td>无危(LC)</td><td>附录I/II</td><td>宠物贸易导致野生种群急剧下降</td></tr>
+      <tr><td>湾鳄</td><td>皮革</td><td>无危(LC)</td><td>附录I/II</td><td>CITES监管下的合法养殖与非法捕猎并存</td></tr>
+      <tr><td>中华穿山甲</td><td>鳞片</td><td>极危(CR)</td><td>附录I</td><td>十年超100万只被盗猎，非法贸易量最大的哺乳动物</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 6. 核心出处 -->
+<section class="section" id="sources">
+  <div class="section-num">06 / SOURCES</div>
+  <h2>核心出处</h2>
+  <div class="subhead">11部关键文献，覆盖考古学·历史学·动物伦理·全球贸易</div>
+
+  <table class="data-table">
+    <thead><tr><th>领域</th><th>核心文献</th><th>覆盖内容</th></tr></thead>
+    <tbody>
+      <tr><td>考古</td><td>贾兰坡《中国旧石器时代》1957<br>袁靖《中国动物考古学》2015<br>张光直《美术、神话与祭祀》2002<br>王宇信《甲骨学通论》2015</td><td>旧石器生存依赖、骨器、装饰品、祭祀殉葬、甲骨文、动物驯化</td></tr>
+      <tr><td>贸易</td><td>Frankopan《The Silk Roads》2015<br>Schafer《The Golden Peaches of Samarkand》1963</td><td>丝绸之路动物制品贸易、象牙犀角虎皮麝香、全球贸易网络</td></tr>
+      <tr><td>伦理</td><td>Singer《Animal Liberation》1975<br>Kolbert《The Sixth Extinction》2014<br>Haraway《The Companion Species Manifesto》2003</td><td>动物权利、物种危机、关系分层、伦理觉醒</td></tr>
+      <tr><td>综合</td><td>Diamond《Guns, Germs, and Steel》1997<br>田自秉《中国工艺美术史》2010</td><td>驯化管理、实用与审美的统一、文明与动物的宏观叙事</td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:20px;font-size:12px;opacity:.4">其余17篇补充文献详见 <em>MYWEB/portfolio/research/人与动物的关系_出处汇总.md</em></p>
+</section>
+
+</main>
+
+<script>
+// Active nav on scroll
+const sections=document.querySelectorAll('.section');
+const navs=document.querySelectorAll('.sidebar-nav a');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){navs.forEach(n=>n.classList.remove('active'));document.querySelector(`[href="#${e.target.id}"]`)?.classList.add('active')}})
+},{threshold:.3});
+sections.forEach(s=>observer.observe(s));
+</script>
+</body>
+</html>
