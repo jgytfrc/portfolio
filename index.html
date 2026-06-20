@@ -5,16 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Animal Trace · 作品集</title>
 <style>
-:root{--bg:#f5f3ef;--surface:#ffffff;--text:#2a2520;--accent:#b8753e;--green:#5a7a4e;--border:#e5e0d8;--muted:#8a8580}
+:root{--bg:#0a0a0a;--surface:#0f0f0f;--text:#c8c3bb;--accent:#c8956c;--green:#7a9a6e;--border:#1a1a1a;--muted:#5a5550}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Noto Serif SC','Source Han Serif SC',serif;background:var(--bg);color:var(--text);display:flex;min-height:100vh;-webkit-font-smoothing:antialiased}
-/* Return link */
-.return-bar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:10px 24px;background:rgba(245,243,239,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.05);display:flex;align-items:center;gap:12px;font-family:'Courier New',monospace;font-size:11px;letter-spacing:.05em}
-.return-bar a{color:var(--accent);text-decoration:none;opacity:.6;transition:opacity .3s}
-.return-bar a:hover{opacity:1}
-.return-bar .sep{opacity:.15;color:var(--text)}
-/* Paper grain overlay */
-.paper-grain{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.035;background-image:url(\"data:image/svg+xml,%3Csvg width='256' height='256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='.4'/%3E%3C/svg%3E\")}
 
 /* Sidebar */
 .sidebar{width:340px;background:var(--surface);border-right:1px solid var(--border);padding:40px 32px;position:fixed;top:0;left:0;bottom:0;overflow-y:auto;z-index:10;display:flex;flex-direction:column}
@@ -71,14 +64,8 @@ body{font-family:'Noto Serif SC','Source Han Serif SC',serif;background:var(--bg
 </style>
 </head>
 <body>
-<div class="paper-grain"></div>
-<div class="return-bar">
-  <a href="https://jgytfrc.github.io/animal-trace/">← 返回 Animal Trace</a>
-  <span class="sep">|</span>
-  <span style="opacity:.3;font-size:10px">動物製品情報可視化プロジェクト · 作品集</span>
-</div>
 
-<aside class="sidebar" style="top:44px">
+<aside class="sidebar">
   <h1>Animal Trace</h1>
   <div class="subtitle">动物制品启示录</div>
   <nav class="sidebar-nav">
@@ -99,7 +86,7 @@ body{font-family:'Noto Serif SC','Source Han Serif SC',serif;background:var(--bg
   <div class="section-num">01 / OVERVIEW</div>
   <h2>课题概要</h2>
   <div class="subhead">Animal Trace — 以动物制品为镜，审视人与动物的千年关系</div>
-  <p>本课题以<strong>动物制品</strong>为引导线索，通过数字媒体艺术的手段，追溯人类使用动物制品的历史谱系——从旧石器时代以兽皮御寒、以兽骨制作工具的<strong>生存驱动</strong>，到商��时期象牙雕刻和龟甲占卜的<strong>礼仪化</strong>，再到丝绸之路上的象牙、犀角贸易，直至当代每年高达200亿美元的<strong>非法野生动物贸易</strong>。</p>
+  <p>本课题以<strong>动物制品</strong>为引导线索，通过数字媒体艺术的手段，追溯人类使用动物制品��历史谱系——从旧石器时代以兽皮御寒、以兽骨制作工具的<strong>生存驱动</strong>，到商周时期象牙雕刻和龟甲占卜的<strong>礼仪化</strong>，再到丝绸之路上的象牙、犀角贸易，直至当代每年高达200亿美元的<strong>非法野生动物贸易</strong>。</p>
   <p>作品集包含<strong>数据可视化装置、交互投影、生成艺术、AR体验、声音可视化</strong>等多种数字媒体形式，覆盖16种受威胁的动物物种。核心目标是让观众<strong>从旁观者变为思考者</strong>——不是被动接受道德说教，而是在沉浸式的视觉体验中主动反思人与动物的伦理关系。</p>
   <blockquote>「十万年前，人类用兽皮御寒——那是生存。今天，象牙被雕刻成奢侈品——这是掠夺。」</blockquote>
 </section>
@@ -109,7 +96,7 @@ body{font-family:'Noto Serif SC','Source Han Serif SC',serif;background:var(--bg
   <div class="section-num">02 / BACKGROUND</div>
   <h2>研究背景</h2>
   <div class="subhead">全球野生动物贸易的规模与影响</div>
-  <p>野生动物及其制品的非法贸易是全球<strong>第四大非法贸易</strong>，仅次于毒品、人口贩卖和假冒商品，年交易额估值高达<strong>200亿美元</strong>。1973年《濒危野生动植物种国际贸易公约》（CITES）签署，1989年象牙国际贸易禁令生效，然而盗猎和走私从未真正停止。</p>
+  <p>野生动物及其制品的非法贸易是全球<strong>第四大非法贸易</strong>，仅次于毒品、人口贩卖和假冒商品，年交易额估值高达<strong>200亿美元</strong>。1973年《濒危野生动植物种国际贸易公约》（CITES）签署，1989年象牙国际贸易禁���生效，然而盗猎和走私从未真正停止。</p>
 
   <div class="stat-grid">
     <div class="stat-card"><div class="num">41.5万</div><div class="label">非洲象现存数量（1979年为130万）</div></div>
@@ -128,7 +115,7 @@ body{font-family:'Noto Serif SC','Source Han Serif SC',serif;background:var(--bg
   <div class="subhead">作品集试图传达的核心思想</div>
   <ul class="bullet-list">
     <li><strong>从生存到掠夺</strong>：追溯动物制品从"生存必需"到"奢侈消费"的历史转变，揭示人类欲望如何将一个原本基于生存需求的行为扭曲为一场全球性的生态危机</li>
-    <li><strong>对话而非说教</strong>：拒绝道德绑架式的表达，以沉浸体验和认知冲突取代单向的道德谴责—��让观众在感受中自己得出结论</li>
+    <li><strong>对话而非说教</strong>：拒绝道德绑架式的表达，以沉浸体验和认知冲突取代单向的道德谴责——让观众在感受中自己得出结论</li>
     <li><strong>数据的情感化</strong>：将CITES、IUCN等数据库中的冷数字转化为可感知的视觉叙事——每一个数字背后都是一个正在消失的物种</li>
     <li><strong>媒介即信息</strong>：运用交互装置、生成艺术、3D可视化等数字媒体手段，让"媒介的形式"本身成为叙事的一部分</li>
     <li><strong>跨文化视角</strong>：融合中国考古发现与全球保护数据，呈现一个既具本土深度又有全球视野的叙事</li>
@@ -172,7 +159,7 @@ body{font-family:'Noto Serif SC','Source Han Serif SC',serif;background:var(--bg
         <ul>
           <li><strong>驯化关系</strong> — 人类开始主动驯养动物，从"狩猎者"转变为"管理者"</li>
           <li><strong>劳力利用</strong> — 牛被用于耕地，动物从食物来源扩展为劳动力</li>
-          <li><strong>"次级产品"开发</strong> — 不杀死动物也能获取资源（奶、毛、蛋）</li>
+          <li><strong>"次级产品"开发</strong> — 不杀死动���也能获取资源（奶、毛、蛋）</li>
         </ul>
       </div>
     </div>
@@ -236,7 +223,7 @@ body{font-family:'Noto Serif SC','Source Han Serif SC',serif;background:var(--bg
       <div class="rc-body">
         <h4>伴侣、伦理与关系分层</h4>
         <ul>
-          <li><strong>动物伴侣</strong> — 部分动物��"资源"转变为"家人"</li>
+          <li><strong>动物伴侣</strong> — 部分动物从"资源"转变为"家人"</li>
           <li><strong>伦理觉醒</strong> — 人类开始反思对动物的权利与责任</li>
           <li><strong>关系分层</strong> — 不同动物在人类社会中地位分化</li>
           <li><strong>民族身份载体</strong> — 动物制品成为民族文化的物质载体</li>
@@ -261,7 +248,7 @@ body{font-family:'Noto Serif SC','Source Han Serif SC',serif;background:var(--bg
       <tr><td>孟加拉虎</td><td>虎皮·虎骨</td><td>濒危(EN)</td><td>附录I</td><td>全球野生仅约3900只</td></tr>
       <tr><td>玳瑁海龟</td><td>龟甲</td><td>极危(CR)</td><td>附录I</td><td>三代内种群下降80%以上</td></tr>
       <tr><td>梅花鹿</td><td>鹿角·兽皮</td><td>无危(LC)</td><td>—</td><td>养殖为主，野生种群在中国受一级保护</td></tr>
-      <tr><td>金刚鹦鹉</td><td>��毛</td><td>无危(LC)</td><td>附录I/II</td><td>宠物贸易导致野生种群急剧下降</td></tr>
+      <tr><td>金刚鹦鹉</td><td>羽毛</td><td>无危(LC)</td><td>附录I/II</td><td>宠物贸易导致野生种群急剧下降</td></tr>
       <tr><td>湾鳄</td><td>皮革</td><td>无危(LC)</td><td>附录I/II</td><td>CITES监管下的合法养殖与非法捕猎并存</td></tr>
       <tr><td>中华穿山甲</td><td>鳞片</td><td>极危(CR)</td><td>附录I</td><td>十年超100万只被盗猎，非法贸易量最大的哺乳动物</td></tr>
     </tbody>
