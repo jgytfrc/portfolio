@@ -51,10 +51,6 @@ body{font-family:'Noto Serif SC','Source Han Serif SC',serif;background:var(--bg
 /* Relation cards */
 .relation-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin:24px 0}
 .relation-card{background:var(--surface);border:1px solid var(--border);overflow:hidden}
-.relation-card .rc-img{width:100%;aspect-ratio:4/3;background:#111;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
-.relation-card .rc-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.relation-card:hover .rc-img img{transform:scale(1.04)}
-.relation-card .rc-img .rc-placeholder{font-size:60px;opacity:.12;position:absolute}
 .relation-card .rc-body{padding:24px}
 .relation-card .rc-body h4{font-size:16px;font-weight:400;color:var(--accent);margin-bottom:14px;letter-spacing:.04em}
 .relation-card .rc-body ul{list-style:none;padding:0}
@@ -140,16 +136,12 @@ body{font-family:'Noto Serif SC','Source Han Serif SC',serif;background:var(--bg
 <section class="section" id="relations">
   <div class="section-num">04 / RELATIONS</div>
   <h2>人与动物的关系</h2>
-  <div class="subhead">从生存依赖到伦理觉醒的二十四种关系形态<br>画像出典：Smithsonian（甲骨文）· 各博物馆Open Access · 自行摄影</div>
+  <div class="subhead">从生存依赖到伦理觉醒的二十四种关系形态</div>
 
   <div class="relation-grid">
 
     <!-- 1. 生存依赖与早期关系 -->
     <div class="relation-card">
-      <div class="rc-img">
-        <span class="rc-placeholder">🦴</span>
-        <img src="assets/relations/survival.jpg" alt="旧石器骨器·生存依赖" loading="lazy" onerror="this.style.display='none'">
-      </div>
       <div class="rc-body">
         <h4>生存依赖与早期关系</h4>
         <ul>
@@ -163,10 +155,6 @@ body{font-family:'Noto Serif SC','Source Han Serif SC',serif;background:var(--bg
 
     <!-- 2. 驯化与管理 -->
     <div class="relation-card">
-      <div class="rc-img">
-        <span class="rc-placeholder">🐂</span>
-        <img src="assets/relations/domestication.jpg" alt="牛耕·驯化" loading="lazy" onerror="this.style.display='none'">
-      </div>
       <div class="rc-body">
         <h4>驯化与管理</h4>
         <ul>
@@ -179,10 +167,6 @@ body{font-family:'Noto Serif SC','Source Han Serif SC',serif;background:var(--bg
 
     <!-- 3. 仪式与权力 -->
     <div class="relation-card">
-      <div class="rc-img">
-        <span class="rc-placeholder">🐢</span>
-        <img src="assets/relations/oracle-bone.jpg" alt="甲骨文·商周祭祀" loading="lazy" onerror="this.style.display='none'">
-      </div>
       <div class="rc-body">
         <h4>仪式与权力</h4>
         <ul>
@@ -196,10 +180,6 @@ body{font-family:'Noto Serif SC','Source Han Serif SC',serif;background:var(--bg
 
     <!-- 4. 贸易与商品化 -->
     <div class="relation-card">
-      <div class="rc-img">
-        <span class="rc-placeholder">🛤️</span>
-        <img src="assets/relations/trade.jpg" alt="丝绸之路·象牙犀角贸易" loading="lazy" onerror="this.style.display='none'">
-      </div>
       <div class="rc-body">
         <h4>贸易与商品化</h4>
         <ul>
@@ -212,10 +192,6 @@ body{font-family:'Noto Serif SC','Source Han Serif SC',serif;background:var(--bg
 
     <!-- 5. 工业化、科学与军事 -->
     <div class="relation-card">
-      <div class="rc-img">
-        <span class="rc-placeholder">🏭</span>
-        <img src="assets/relations/industrial.jpg" alt="工业化·皮革工厂" loading="lazy" onerror="this.style.display='none'">
-      </div>
       <div class="rc-body">
         <h4>工业化、科学与军事</h4>
         <ul>
@@ -229,10 +205,6 @@ body{font-family:'Noto Serif SC','Source Han Serif SC',serif;background:var(--bg
 
     <!-- 6. 伴侣、伦理与关系分层 -->
     <div class="relation-card">
-      <div class="rc-img">
-        <span class="rc-placeholder">🐕</span>
-        <img src="assets/relations/companion.jpg" alt="动物伴侣·伦理觉醒" loading="lazy" onerror="this.style.display='none'">
-      </div>
       <div class="rc-body">
         <h4>伴侣、伦理与关系分层</h4>
         <ul>
